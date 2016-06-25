@@ -1,0 +1,29 @@
+/**
+ * @file
+ * This composition does...
+ *
+ * @copyright Copyright © 2016 [cymaspace](https://vuo.org/user/421782)
+ * @see This is a Vuo Composition source code file.  See http://vuo.org for further information.
+ */
+
+digraph G
+{
+ConvertDataToText [type="vuo.type.data.text" version="1.0.0" label="Convert Data to Text|<refresh>refresh\l|<data>data\l|<text>text\r" pos="99,277"];
+ConvertIntegerToRealNumber [type="vuo.type.integer.real" version="1.0.0" label="Convert Integer to Real Number|<refresh>refresh\l|<integer>integer\l|<real>real\r" pos="370,208"];
+FetchData [type="vuo.data.fetch" version="1.0.0" label="Fetch Data|<refresh>refresh\l|<url>url\l|<data>data\r" pos="-174,70" _url="\"\""];
+FireOnStart [type="vuo.event.fireOnStart" version="1.0.0" label="Fire on Start|<refresh>refresh\l|<started>started\r" pos="30,50" _started_eventThrottling="enqueue"];
+GetWindowDimensions [type="vuo.window.get.dimensions" version="1.0.0" label="Get Window Dimensions|<refresh>refresh\l|<window>window\l|<width>width\r|<height>height\r|<pixelsWide>pixelsWide\r|<pixelsHigh>pixelsHigh\r|<aspectRatio>aspectRatio\r|<top>top\r|<right>right\r|<bottom>bottom\r|<left>left\r" pos="275,349"];
+MakeList [type="vuo.list.make.2.VuoWindowProperty" version="2.0.0" label="Make List|<refresh>refresh\l|<1>1\l|<2>2\l|<list>list\r" pos="496,188"];
+MakeList2 [type="vuo.list.make.2.VuoLayer" version="2.0.0" label="Make List|<refresh>refresh\l|<1>1\l|<2>2\l|<list>list\r" pos="446,173"];
+ParseText2 [type="cymaspace.parseText" version="" label="Parse Text|<refresh>refresh\l|<TextFileURL>TextFileURL\l|<FullSongText>FullSongText\r" pos="0,167" _FullSongText_eventThrottling="enqueue"];
+RenderLayersToWindow [type="vuo.layer.render.window" version="2.3.0" label="Render Layers to Window|<refresh>refresh\l|<layers>layers\l|<setWindowProperties>setWindowProperties\l|<showedWindow>showedWindow\r|<requestedFrame>requestedFrame\r|<renderedLayers>renderedLayers\r" pos="542,162" _showedWindow_eventThrottling="enqueue" _requestedFrame_eventThrottling="drop"];
+RenderText [type="cymaspace.renderText" version="" label="Render Text|<refresh>refresh\l|<LyricsTextFile>LyricsTextFile\l|<GoForward>GoForward\l|<GoBackward>GoBackward\l|<WindowDimensions>WindowDimensions\l|<Layer>Layer\r" pos="340,53" _Layer_eventThrottling="enqueue"];
+
+ConvertDataToText:text -> ParseText2:TextFileURL;
+ConvertIntegerToRealNumber:real -> RenderText:WindowDimensions;
+FetchData:data -> ConvertDataToText:data;
+GetWindowDimensions:pixelsWide -> ConvertIntegerToRealNumber:integer;
+MakeList2:list -> RenderLayersToWindow:layers;
+MakeList:list -> RenderLayersToWindow:setWindowProperties;
+RenderText:Layer -> MakeList2:1;
+}

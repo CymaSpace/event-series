@@ -5,7 +5,7 @@ Hello Artists!
 Welcome to the centralized Github repository to store assets and files for the Arts & Accessibility Event Series. This system is used to allow us to easily keep files in sync as well as to integrate with our automated Creative Captioning display system. If you are not familiar with Github, don't worry, a CymaSpace technician is available to work with you and ensure you can provide everything needed for a successful event.
 
 CREATIVE CAPTIONING SYSTEM
-For most artists who have word-based lyrical or poetical content, the Creative Captioning System is a very important feature that in addition to providing ASL Interpreters with study materials, will allow the projection to be automated and easily displayed during events themselves. Please take a look inside one of the existing artist directors such as Artists/Giddy Up to see their lyrics.txt file and how it is formatted. For most part it is straight forward, here is an example:
+For most artists who have word-based lyrical or poetical content, the Creative Captioning System is a very important feature that in addition to providing ASL Interpreters with study materials, will allow the projection to be automated and easily displayed during events themselves. Please take a look inside one of the existing artist directories such as Artists/Giddy Up to see their lyrics.txt file and how it is formatted. For most part it is straight forward, here is an example:
 
 SONG TITLE 1
 First line to be projected

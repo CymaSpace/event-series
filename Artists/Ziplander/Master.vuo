@@ -1,0 +1,21 @@
+/**
+ * @file
+ * This composition does...
+ *
+ * @copyright Copyright © 2016 [cymaspace](https://vuo.org/user/421782)
+ * @see This is a Vuo Composition source code file.  See http://vuo.org for further information.
+ */
+
+digraph G
+{
+ConvertDataToText [type="vuo.type.data.text" version="1.0.0" label="Convert Data to Text|<refresh>refresh\l|<data>data\l|<text>text\r" pos="314,663"];
+FetchData [type="vuo.data.fetch" version="1.0.0" label="Fetch Data|<refresh>refresh\l|<url>url\l|<data>data\r" pos="98,456" _url="\"lyrics.txt\""];
+FireOnStart [type="vuo.event.fireOnStart" version="1.0.0" label="Fire on Start|<refresh>refresh\l|<started>started\r" pos="40,338" _started_eventThrottling="enqueue"];
+ParseText [type="cymaspace.parseText" version="" label="Parse Text|<refresh>refresh\l|<Text>Text\l|<Item>Item\r" pos="215,553" fillcolor="cyan" _Item_eventThrottling="enqueue"];
+RenderText2 [type="cymaspace.renderText" version="" label="Render Text|<refresh>refresh\l|<Text>Text\l|<Layer>Layer\r" pos="415,553" fillcolor="lime" _Layer_eventThrottling="enqueue"];
+
+ConvertDataToText:text -> ParseText:Text;
+FetchData:data -> ConvertDataToText:data;
+FireOnStart:started -> FetchData:refresh;
+ParseText:Item -> RenderText2:Text;
+}
